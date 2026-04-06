@@ -1,49 +1,47 @@
-# README Praktikum Modul 1
+# Praktikum Sistem Mikrokontroler - Modul 1
 
-## Percabangan dan Perulangan (Arduino)
+## Percabangan dan Perulangan
 
 ---
 
-# 1. Percobaan 1 – Percabangan
+# 1.5.4 Pertanyaan Praktikum Percobaan 1 Percabangan:
 
-## 1.5.4 Pertanyaan dan Jawaban
+## 1. Pada kondisi apa program masuk ke blok if?
 
-### 1. Pada kondisi apa program masuk ke blok `if`?
+Program akan masuk ke blok `if` ketika kondisi bernilai benar (true), yaitu saat nilai:
 
-Program akan masuk ke blok `if` ketika kondisi bernilai benar (true), yaitu saat:
-
-```
+```cpp
 timeDelay <= 100
 ```
 
-Artinya nilai delay sudah mencapai batas minimum sehingga perlu dilakukan reset.
+Hal ini menunjukkan bahwa delay sudah mencapai batas minimum sehingga program akan melakukan reset.
 
 ---
 
-### 2. Pada kondisi apa program masuk ke blok `else`?
+## 2. Pada kondisi apa program masuk ke blok else?
 
-Program akan masuk ke blok `else` ketika kondisi pada `if` bernilai salah (false), yaitu:
+Program akan masuk ke blok `else` ketika kondisi pada `if` bernilai salah (false), yaitu saat:
 
-```
+```cpp
 timeDelay > 100
 ```
 
-Artinya program masih berada pada fase percepatan LED.
+Artinya program masih berada dalam proses percepatan kedipan LED.
 
 ---
 
-### 3. Apa fungsi dari perintah `delay(timeDelay)`?
+## 3. Apa fungsi dari perintah delay(timeDelay)?
 
-Perintah `delay(timeDelay)` digunakan untuk memberikan jeda waktu dalam satuan milidetik. Fungsi ini mengatur kecepatan nyala dan mati LED:
+Perintah `delay(timeDelay)` berfungsi untuk memberikan jeda waktu dalam satuan milidetik. Fungsi ini mengatur kecepatan LED berkedip:
 
 * Nilai besar → LED berkedip lambat
 * Nilai kecil → LED berkedip cepat
 
 ---
 
-### 4. Modifikasi Program (cepat → sedang → mati)
+## 4. Jika program yang dibuat memiliki alur mati → lambat → cepat → reset (mati), ubah menjadi LED tidak langsung reset → tetapi berubah dari cepat → sedang → mati dan berikan penjelasan disetiap baris kode nya dalam bentuk README.md!
 
-#### Kode Program
+### Kode Program
 
 ```cpp
 const int ledPin = 6;
@@ -72,26 +70,26 @@ void loop() {
 }
 ```
 
-#### Penjelasan
+### Penjelasan setiap baris kode
 
-* `ledPin` digunakan untuk menentukan pin output LED.
-* `timeDelay` menyimpan nilai jeda waktu.
-* `pinMode` mengatur pin sebagai output.
-* `digitalWrite(HIGH)` menyalakan LED.
-* `digitalWrite(LOW)` mematikan LED.
-* Kondisi `if` digunakan untuk mengatur perubahan kecepatan LED dari lambat ke cepat.
-* `else if` digunakan untuk fase transisi (sedang).
-* `else` digunakan untuk menghentikan LED dan mengatur ulang nilai delay.
+* `const int ledPin = 6;` menentukan pin LED yang digunakan.
+* `int timeDelay = 1000;` menentukan nilai awal delay (lambat).
+* `pinMode(ledPin, OUTPUT);` mengatur pin sebagai output.
+* `digitalWrite(ledPin, HIGH);` menyalakan LED.
+* `delay(timeDelay);` memberi jeda sesuai nilai delay.
+* `digitalWrite(ledPin, LOW);` mematikan LED.
+* `if (timeDelay > 300)` mengatur fase dari lambat ke cepat.
+* `else if (timeDelay > 100)` mengatur fase sedang.
+* `else` digunakan saat LED sudah cepat, kemudian dimatikan dan di-reset.
+* `timeDelay -= ...` digunakan untuk mengurangi delay sehingga LED semakin cepat.
 
 ---
 
-# 2. Percobaan 2 – Perulangan
+# 1.6.4 Pertanyaan Praktikum percobaan 2 perulangan
 
-## 1.6.4 Pertanyaan dan Jawaban
+## 1. Gambarkan rangkaian schematic 5 LED running yang digunakan pada percobaan!
 
-### 1. Gambaran rangkaian 5 LED running
-
-Setiap LED dihubungkan ke pin digital Arduino melalui resistor, kemudian ke GND.
+Rangkaian terdiri dari 5 LED yang masing-masing terhubung ke pin digital Arduino melalui resistor, kemudian ke GND.
 
 ```
 Pin 2 ---- LED ---- Resistor ---- GND
@@ -103,33 +101,33 @@ Pin 6 ---- LED ---- Resistor ---- GND
 
 ---
 
-### 2. Cara kerja LED dari kiri ke kanan
+## 2. Jelaskan bagaimana program membuat efek LED berjalan dari kiri ke kanan!
 
-Program menggunakan perulangan `for` dengan nilai pin yang meningkat:
+Efek LED dari kiri ke kanan dibuat menggunakan perulangan `for` dengan nilai pin yang meningkat:
 
 ```cpp
 for (int ledPin = 2; ledPin <= 7; ledPin++)
 ```
 
-Setiap iterasi akan menyalakan LED secara berurutan dari pin kecil ke besar.
+Setiap iterasi akan menyalakan LED secara berurutan dari pin kecil ke pin besar sehingga terlihat seperti bergerak dari kiri ke kanan.
 
 ---
 
-### 3. Cara kerja LED dari kanan ke kiri
+## 3. Jelaskan bagaimana program membuat LED kembali dari kanan ke kiri!
 
-Program menggunakan perulangan `for` dengan nilai pin yang menurun:
+Efek LED dari kanan ke kiri dibuat menggunakan perulangan `for` dengan nilai pin yang menurun:
 
 ```cpp
 for (int ledPin = 7; ledPin >= 2; ledPin--)
 ```
 
-Setiap iterasi akan menyalakan LED dari pin besar ke kecil.
+Setiap iterasi akan menyalakan LED dari pin besar ke kecil sehingga terlihat seperti bergerak dari kanan ke kiri.
 
 ---
 
-### 4. Program 3 LED kanan dan kiri bergantian
+## 4. Buatkan program agar LED menyala tiga LED kanan dan tiga LED kiri secara bergantian dan berikan penjelasan disetiap baris kode nya dalam bentuk README.md!
 
-#### Kode Program
+### Kode Program
 
 ```cpp
 int timer = 200;
@@ -141,7 +139,6 @@ void setup() {
 }
 
 void loop() {
-  // LED kiri (pin 2, 3, 4)
   digitalWrite(2, HIGH);
   digitalWrite(3, HIGH);
   digitalWrite(4, HIGH);
@@ -151,7 +148,6 @@ void loop() {
   digitalWrite(3, LOW);
   digitalWrite(4, LOW);
 
-  // LED kanan (pin 5, 6, 7)
   digitalWrite(5, HIGH);
   digitalWrite(6, HIGH);
   digitalWrite(7, HIGH);
@@ -163,47 +159,43 @@ void loop() {
 }
 ```
 
-#### Penjelasan
+### Penjelasan setiap baris kode
 
-* Perulangan `for` digunakan untuk menginisialisasi semua pin sebagai output.
-* LED dibagi menjadi dua kelompok: kiri (2–4) dan kanan (5–7).
-* Setiap kelompok dinyalakan secara bergantian dengan jeda waktu tertentu.
-* Pola ini akan terus berulang di dalam fungsi `loop`.
-
----
-
-# 3. Analisis
-
-## 1. Hasil Praktikum
-
-* Percobaan percabangan menunjukkan perubahan kecepatan LED berdasarkan kondisi tertentu.
-* Percobaan perulangan menunjukkan pola LED berjalan secara berurutan dan bolak-balik.
+* `int timer = 200;` menentukan waktu jeda.
+* `for (int i = 2; i <= 7; i++)` menginisialisasi pin sebagai output.
+* `digitalWrite(..., HIGH)` menyalakan LED.
+* `digitalWrite(..., LOW)` mematikan LED.
+* Pin 2–4 digunakan untuk LED kiri.
+* Pin 5–7 digunakan untuk LED kanan.
+* Program membuat kedua kelompok LED menyala secara bergantian.
 
 ---
 
-## 2. Pengaruh Perulangan terhadap Program Arduino
+# 1.7 Pertanyaan Analisis
 
-Perulangan seperti `for` dan `while` memungkinkan eksekusi kode secara berulang tanpa harus menulis kode yang sama berkali-kali. Hal ini membuat program lebih efisien dan mudah dikembangkan, terutama untuk pola seperti LED running.
+## Jawablah pertanyaan berikut sebagai bahan dalam laporan praktikum pada Bagian Hasil dan Analisis
 
----
+### 1. Uraikan hasil tugas pada praktikum yang telah dilakukan pada setiap percobaan!
 
-## 3. Cara Kerja Percabangan (if-else)
-
-Percabangan digunakan untuk mengambil keputusan berdasarkan kondisi:
-
-* Jika kondisi benar, maka blok `if` dijalankan.
-* Jika kondisi salah, maka blok `else` dijalankan.
-
-Dalam konteks LED, percabangan digunakan untuk menentukan kapan LED berubah kecepatan atau berhenti.
+Pada percobaan percabangan, LED dapat berubah kecepatan berdasarkan nilai delay. Pada percobaan perulangan, LED dapat menyala secara berurutan dan bolak-balik sesuai dengan logika perulangan.
 
 ---
 
-## 4. Kombinasi Perulangan dan Percabangan
+### 2. Bagaimana pengaruh penggunaan struktur perulangan (seperti for dan while) terhadap jalannya program pada Arduino?
 
-Perulangan digunakan untuk menjalankan program secara terus-menerus, sedangkan percabangan digunakan untuk menentukan kondisi tertentu dalam setiap siklus. Kombinasi keduanya memungkinkan sistem Arduino merespons perubahan kondisi secara dinamis, misalnya berdasarkan nilai sensor atau waktu.
+Perulangan memungkinkan program berjalan secara terus-menerus dan berulang tanpa harus menulis kode yang sama. Hal ini membuat program lebih efisien dan mempermudah pembuatan pola seperti LED running.
 
 ---
 
-# Kesimpulan
+### 3. Bagaimana cara kerja percabangan (if-else) dalam menentukan kondisi LED menyala atau mati berdasarkan input yang diberikan?
 
-Percabangan dan perulangan merupakan struktur dasar dalam pemrograman Arduino. Keduanya digunakan untuk mengontrol alur program dan perilaku perangkat keras sehingga sistem dapat bekerja secara otomatis dan terstruktur.
+Percabangan bekerja dengan mengevaluasi kondisi. Jika kondisi benar maka blok `if` dijalankan, jika salah maka blok `else` dijalankan. Dalam Arduino, ini digunakan untuk mengontrol kapan LED menyala atau mati.
+
+---
+
+### 4. Bagaimana kombinasi antara perulangan dan percabangan dapat digunakan untuk membuat sistem Arduino yang responsif terhadap perubahan kondisi lingkungan?
+
+Perulangan digunakan untuk menjalankan program secara terus-menerus, sedangkan percabangan digunakan untuk mengambil keputusan berdasarkan kondisi tertentu. Kombinasi keduanya memungkinkan sistem merespons perubahan secara real-time, seperti perubahan nilai sensor.
+
+---
+Praktikum Sistem Mikrokontroler - Pertemuan 1
