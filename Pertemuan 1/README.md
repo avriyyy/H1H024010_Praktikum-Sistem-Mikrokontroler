@@ -1,6 +1,5 @@
 # Praktikum Sistem Mikrokontroler - Modul 1
 ## Percabangan dan Perulangan
-Apriyudha  |  H1H024010  |  Shift A
 ---
 
 # 1.5.4 Pertanyaan Praktikum Percobaan 1 Percabangan:
