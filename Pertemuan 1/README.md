@@ -1,7 +1,6 @@
 # Praktikum Sistem Mikrokontroler - Modul 1
-
 ## Percabangan dan Perulangan
-
+Apriyudha  |  H1H024010  |  Shift A
 ---
 
 # 1.5.4 Pertanyaan Praktikum Percobaan 1 Percabangan:
@@ -198,8 +197,4 @@ Percabangan bekerja dengan mengevaluasi kondisi. Jika kondisi benar maka blok `i
 Perulangan digunakan untuk menjalankan program secara terus-menerus, sedangkan percabangan digunakan untuk mengambil keputusan berdasarkan kondisi tertentu. Kombinasi keduanya memungkinkan sistem merespons perubahan secara real-time, seperti perubahan nilai sensor.
 
 ---
-<<<<<<< HEAD
-Praktikum Sistem Mikrokontroler - Pertemuan 1
-=======
-Praktikum Sistem Mikrokontroler - Pertemuan 1
->>>>>>> b10b88e3650fcb7790b63d9cbd026a48186a751f
+Praktikum Sistem Mikrokobtroler - Modul 1
