@@ -1,6 +1,5 @@
 # Praktikum Sistem Mikrokontroler - Modul 2
 ## Pemrograman GPIO
-Apriyudha  |  H1H024010  |  Shift A
 ---
 
 # **2.5.4 Pertanyaan Praktikum**
