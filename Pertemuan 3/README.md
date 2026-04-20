@@ -1,6 +1,6 @@
 
-# Praktikum Sistem Mikrokontroler - Modul 2
-## Pemrograman GPIO
+# Praktikum Sistem Mikrokontroler - Modul 3
+## Protokol Komunikasi
 Apriyudha  |  H1H024010  |  Shift A
 ---
 
