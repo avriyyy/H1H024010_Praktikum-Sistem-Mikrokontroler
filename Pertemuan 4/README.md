@@ -1,5 +1,5 @@
 # Praktikum Sistem Mikrokontroler - Modul 4
-## Protokol Komunikasi
+## ADC dan PWM
 Apriyudha  |  H1H024010  |  Shift A
 ---
 
